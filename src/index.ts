@@ -49,7 +49,7 @@ client.on("message", (message) => {
 });
 
 client.on("ready", () => {
-  console.log("🏃‍♀️ Hunterbot is online! 💨");
+  console.log("🏃‍♀️ Hunterbot is online!");
 });
 
 client.once("reconnecting", () => {
