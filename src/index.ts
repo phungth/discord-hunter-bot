@@ -77,7 +77,7 @@ const bot = (): void => {
 server.disable("x-powered-by");
 
 server.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.send('Hunterbot is online!')
 });
 
 server.listen(port, () => {
