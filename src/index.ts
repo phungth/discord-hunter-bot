@@ -59,7 +59,7 @@ const bot = (): void => {
   });
 
   client.on("ready", () => {
-    console.log("🏃‍♀️ Misabot is online! 💨");
+    console.log("🏃‍♀️ Hunterbot is online! 💨");
   });
 
   client.once("reconnecting", () => {
@@ -74,6 +74,11 @@ const bot = (): void => {
 };
 
 server.disable('x-powered-by');
+
+
+server.get('/', (req, res) => {
+  res.send('Hunterbot is online!')
+})
 
 server.listen(port, () => {
   bot();
