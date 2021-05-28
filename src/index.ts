@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import herokuAwake from "heroku-awake";
 import { Client } from "discord.js";
 import play from "./actions/play";
@@ -73,12 +74,11 @@ const bot = (): void => {
   client.login(token);
 };
 
-server.disable('x-powered-by');
+server.disable("x-powered-by");
 
-
-server.get('/', (req, res) => {
-  res.send('Hunterbot is online!')
-})
+server.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, '/index.html'));
+});
 
 server.listen(port, () => {
   bot();
