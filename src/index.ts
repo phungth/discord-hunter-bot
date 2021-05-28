@@ -16,6 +16,9 @@ const url = ""; // Đường dẫn của app bạn trên Heroku
 const bot = (): void => {
   const client = new Client();
   const token = process.env.TOKEN;
+  const prefix = "!";
+  // Đây là tiền tố trước mỗi lệnh mà ta ra hiệu cho bot từ khung chat.
+  // Lệnh có dạng như sau "!play Nhạc Đen Vâu", "!pause",...
 
   client.on("message", (message) => {
     const args = message.content.substring(prefix.length).split(" ");
@@ -56,7 +59,7 @@ const bot = (): void => {
   });
 
   client.on("ready", () => {
-    console.log("🏃‍♀️ Hunterbot is online! 💨");
+    console.log("🏃‍♀️ Misabot is online! 💨");
   });
 
   client.once("reconnecting", () => {
