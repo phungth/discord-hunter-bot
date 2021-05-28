@@ -74,11 +74,15 @@ const bot = (): void => {
   client.login(token);
 };
 
-server.disable("x-powered-by");
+server.use(express.static(path.resolve(`${__dirname}/../public`)));
 
-server.get("/", (req, res) => {
-  res.send('Hunterbot is online!')
+server.get("*", (_req, res) => {
+  res.sendFile(path.resolve(`${__dirname}/../public/index.html`));
 });
+
+// server.get("/", (req, res) => {
+//   res.send('Hunterbot is online!')
+// });
 
 server.listen(port, () => {
   bot();
