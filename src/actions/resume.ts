@@ -8,9 +8,8 @@ export default {
     const server = servers[message.guild.id];
     if (server) {
       if (server.dispatcher && server.playing) {
-        server.dispatcher.resume();
-        message.channel.send("⏯ OK tiếp tục");
-      } else message.channel.send("❌ Không có bài nào đang bật!");
-    } else message.channel.send("❌ Không có bài nào đang bật!");
+        message.channel.send("⏯ Resume").then(() => server.dispatcher.resume());
+      } else message.channel.send("❌ Nothing to resume!");
+    } else message.channel.send("❌ Nothing to resume!");
   },
 };

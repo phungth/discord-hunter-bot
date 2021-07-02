@@ -1,4 +1,3 @@
-// Dừng phát nhạc và rời khỏi kênh thoại
 import { Message } from "discord.js";
 
 import { servers } from "../data/server";
@@ -16,11 +15,11 @@ export default {
           }
           server.playing = null;
           server.dispatcher.end();
-          message.channel.send("Ok tao đã tắt hết và thoát voice rồi nha!");
+          message.channel.send("⏹ Ending and leave voice channel!");
         }
-      } else message.channel.send("❌ Không có bài nào hết sao stop!");
+      } else message.channel.send("❌ Nothing to stop!");
       if (message.guild.voice.connection)
         message.guild.voice.connection.disconnect();
-    } else message.channel.send("❌ Không có bài nào hết sao stop!");
+    } else message.channel.send("❌ Nothing to stop!");
   },
 };

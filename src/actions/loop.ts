@@ -5,20 +5,19 @@ import { servers } from "../data/server";
 import { misabotLogo, platforms } from "../constant/config";
 
 export default {
-  name: "nowplaying",
+  name: "loop",
   execute: (message: Message): void => {
     const server = servers[message.guild.id];
     if (server) {
-      if (!server.playing) {
-        message.channel.send("❌ Nothing is played now!");
-      } else {
+      if (server.dispatcher && server.playing) {
+        server.playing.loop = true;
         const song = server.playing.song;
         const messageEmbed = new MessageEmbed()
           .setURL(song.resource.url)
           .setColor("#0099ff")
           .setTitle(song.resource.title)
           .setAuthor(
-            `Playing 🎵`,
+            `Loop by ${message.member.displayName} 🔁`,
             platforms[song.resource.platform.toString()].uri
           )
           .setThumbnail(song.resource.thumbnail)
@@ -32,19 +31,17 @@ export default {
             {
               name: "Order by",
               value: song.requester,
-              inline: true,
-            },
-            {
-              name: "Loop",
-              value: server.playing.loop ? "Yes" : "No",
-              inline: true,
+              inline: false,
             }
           )
           .setFooter(`Misabot © ${new Date().getFullYear()}`, misabotLogo);
+
         message.channel.send(messageEmbed);
+      } else {
+        message.channel.send("❌ Nothing to loop!");
       }
     } else {
-      message.channel.send("❌ Nothing is played now!");
+      message.channel.send("❌ Nothing to loop!");
     }
   },
 };
