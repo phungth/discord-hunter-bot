@@ -45,7 +45,7 @@ export default {
                   inline: true,
                 }
               )
-              .setFooter(`Misabot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
 
             message.channel.send(messageEmbed).then(() => {
               if (!message.guild.voice) {
@@ -110,7 +110,7 @@ export default {
                   inline: true,
                 }
               )
-              .setFooter(`Misabot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
 
             message.channel.send(messageEmbed).then(() => {
               if (!message.guild.voice) {

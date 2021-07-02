@@ -51,7 +51,7 @@ export default {
                   inline: false,
                 }
               )
-              .setFooter(`Misabot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
             message.channel.send(messageEmbed);
           }
         } else message.channel.send("❌ Nothing to remove!");

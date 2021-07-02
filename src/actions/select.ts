@@ -52,7 +52,7 @@ export default {
                   inline: false,
                 }
               )
-              .setFooter(`Misabot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
             server.playing = null;
             message.channel
               .send(messageEmbed)
