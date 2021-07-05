@@ -2,7 +2,7 @@ import { Message, MessageEmbed } from "discord.js";
 
 import { formatTimeRange } from "../utils/time";
 import { servers } from "../data/server";
-import { misabotLogo, platforms } from "../constant/config";
+import { hunterbotLogo, platforms } from "../constant/config";
 
 export default {
   name: "skip",
@@ -38,7 +38,7 @@ export default {
                 inline: false,
               }
             )
-            .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
+            .setFooter(`Hunterbot © ${new Date().getFullYear()}`, hunterbotLogo);
           server.playing = null;
           message.channel
             .send(messageEmbed)

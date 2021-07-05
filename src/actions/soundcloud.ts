@@ -6,7 +6,7 @@ import { formatTimeRange } from "../utils/time";
 import { soundcloudPlaylistRegex } from "../constant/regex";
 import { playAudio } from "./playAudio";
 import { Platform } from "../services/types";
-import { misabotLogo, platforms } from "../constant/config";
+import { hunterbotLogo, platforms } from "../constant/config";
 
 export default {
   name: "soundcloud",
@@ -45,7 +45,7 @@ export default {
                   inline: true,
                 }
               )
-              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, hunterbotLogo);
 
             message.channel.send(messageEmbed).then(() => {
               if (!message.guild.voice) {
@@ -110,7 +110,7 @@ export default {
                   inline: true,
                 }
               )
-              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, misabotLogo);
+              .setFooter(`Hunterbot © ${new Date().getFullYear()}`, hunterbotLogo);
 
             message.channel.send(messageEmbed).then(() => {
               if (!message.guild.voice) {

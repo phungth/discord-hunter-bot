@@ -14,6 +14,7 @@ import queue from "./actions/queue";
 import select from "./actions/select";
 import loop from "./actions/loop";
 import remove from "./actions/remove";
+import help from "./actions/help";
 
 import {
   checkUserInVoiceChannel,
@@ -35,6 +36,12 @@ const bot = (): void => {
 
       if (message.content[0] === "!") {
         switch (args[0]) {
+          case "help": {
+            checkUserInVoiceChannel(message, () =>
+              help.execute(message)
+            );
+            break;
+          }
           case "p":
           case play.name:
             checkUserInVoiceChannel(message, () =>
