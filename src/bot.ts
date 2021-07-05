@@ -48,6 +48,7 @@ const bot = (): void => {
             );
             break;
           case skip.name:
+          case 'next':
           case "fs":
             checkUserInVoiceChannel(message, () =>
               checkBotInVoiceChannel(message, () => skip.execute(message))
