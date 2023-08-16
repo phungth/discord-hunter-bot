@@ -1,17 +1,25 @@
-import { URL } from 'node:url'
-import { Client, GatewayIntentBits } from 'discord.js'
-import { loadCommands, loadEvents } from './util/loaders.js'
-import { registerEvents } from './util/registerEvents.js'
+import { config } from 'dotenv'
+import { fileURLToPath } from 'url'
+import express from 'express'
+import path from 'path'
 
-// Initialize the client
-const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+import bot from './bot.js'
+config()
 
-// Load the events and commands
-const events = await loadEvents(new URL('events/', import.meta.url))
-const commands = await loadCommands(new URL('commands/', import.meta.url))
+const __filename = fileURLToPath(import.meta.url)
 
-// Register the event handlers
-registerEvents(commands, events, client)
+const __dirname = path.dirname(__filename)
 
-// Login to the client
-client.login()
+const port = process.env.PORT || 5000
+const server = express()
+
+server.disable('x-powered-by')
+server.use(express.static(path.resolve(path.join(__dirname, 'public'))))
+server.get('*', (_req, res) => {
+  res.sendFile(path.resolve(path.join(__dirname, 'public/index.html')))
+})
+
+server.listen(port, () => {
+  bot()
+  console.log(`🚀 Server is running on port ${port} ✨`)
+})

@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "prettier --check . && eslint src --ext .js,.cjs --format=pretty",
     "format": "prettier --write . && eslint src --ext .js,.cjs --fix --format=pretty",
-    "start": "node --require dotenv/config src/index.js",
-    "deploy": "node --require dotenv/config src/util/deploy.js"
+    "start": "nodemon src/index.js",
+    "deploy": "node src/util/deploy.js"
   },
   "repository": {
     "type": "git",
