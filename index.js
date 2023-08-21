@@ -3,13 +3,13 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import firebase from './firebase/index.js';
+import firebase from './src/firebase/index.js';
 import _ from 'lodash';
 import { getDatabase, ref, onValue } from 'firebase/database';
 let db = getDatabase(firebase);
-import { members } from './constant.js';
+import { members } from './src/constant.js';
 
-import bot from './bot.js';
+import bot from './src/bot.js';
 config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,11 +24,11 @@ server.use(cors());
 
 server.use(express.static(path.resolve(path.join(__dirname, 'public'))));
 
-server.get('/users', function (req, res, next) {
+server.get('/api/users', function (req, res, next) {
 	res.json({ data: members });
 });
 
-server.get('/history', function (req, res, next) {
+server.get('/api/history', function (req, res, next) {
 	onValue(
 		ref(db, '/ledger'),
 		(snapshot) => {
@@ -54,7 +54,7 @@ server.get('/history', function (req, res, next) {
 	);
 });
 
-server.get('/ledger', function (req, res, next) {
+server.get('/api/ledger', function (req, res, next) {
 	onValue(
 		ref(db, '/ledger'),
 		(snapshot) => {
