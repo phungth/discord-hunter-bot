@@ -37,7 +37,7 @@ server.get('/api/history', function (req, res, next) {
 				const records = _.values(item);
 				return {
 					date: _.get(records, '[0].date', ''),
-					dateString: new Date(_.get(records, '[0].date', '')).toLocaleString(),
+					dateString: _.get(records, '[0].dateString', ''),
 					rank1: records.find((r) => r.rank === 1).name,
 					rank2: records.find((r) => r.rank === 2).name,
 					rank3: records.find((r) => r.rank === 3).name,
