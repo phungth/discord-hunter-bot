@@ -12,28 +12,28 @@ export default {
 				.setName('rank_1')
 				.setDescription('Hạng 1 -  Về nhất')
 				.setRequired(true)
-				.addChoices(members[0], members[1], members[2], members[4], members[5]),
+				.addChoices(members[0], members[1], members[2], members[3], members[4], members[5]),
 		)
 		.addStringOption((option) =>
 			option
 				.setName('rank_2')
 				.setDescription('Hạng 2 -  Về nhì')
 				.setRequired(true)
-				.addChoices(members[0], members[1], members[2], members[4], members[5]),
+				.addChoices(members[0], members[1], members[2], members[3], members[4], members[5]),
 		)
 		.addStringOption((option) =>
 			option
 				.setName('rank_3')
 				.setDescription('Hạng 3 -  Về ba')
 				.setRequired(true)
-				.addChoices(members[0], members[1], members[2], members[4], members[5]),
+				.addChoices(members[0], members[1], members[2], members[3], members[4], members[5]),
 		)
 		.addStringOption((option) =>
 			option
 				.setName('rank_4')
 				.setDescription('Hạng 4 -  Về bét')
 				.setRequired(true)
-				.addChoices(members[0], members[1], members[2], members[4], members[5]),
+				.addChoices(members[0], members[1], members[2], members[3], members[4], members[5]),
 		)
 		.addBooleanOption((option) => option.setName('is_double').setDescription('Có x2 hay không?').setRequired(true))
 		.setDefaultMemberPermissions(3),
