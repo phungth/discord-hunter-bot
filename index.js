@@ -42,7 +42,7 @@ server.get('/api/history', function (req, res, next) {
 					rank2: records.find((r) => r.rank === 2).name,
 					rank3: records.find((r) => r.rank === 3).name,
 					rank4: records.find((r) => r.rank === 4).name,
-					isDouble: !!(records.find((r) => r.rank === 1).score / 2),
+					isDouble: !!(records.find((r) => r.rank === 1).score % 2 === 0),
 					scoreDetails: records,
 				};
 			});
